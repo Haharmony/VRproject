@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 C:\Users\Alumno\Desktop\VRproject\VRtesting
+=======
+C:\Users\Alumno\Documents\GitHub\VRproject\VRtesting
+>>>>>>> e722df8ffc69bc15da6c72fda41c128d6ca4c698
