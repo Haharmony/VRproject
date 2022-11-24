@@ -28,5 +28,22 @@ public class MainMenu : MonoBehaviour
     public void LevelsButton()
     {
         MainMenuPanel.SetActive(false);
+        LevelsPanel.SetActive(true);
+    }
+
+    public void ExtraButton()
+    {
+        MainMenuPanel.SetActive(false);
+        ExtraPanel.SetActive(true);
+    }
+    public void CreditsButton()
+    {
+        MainMenuPanel.SetActive(false);
+        CreditsPanel.SetActive(true);
+    }
+
+    public void ExitButton()
+    {
+        Application.Quit();
     }
 }
