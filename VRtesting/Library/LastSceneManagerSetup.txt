@@ -1,20 +1,5 @@
 sceneSetups:
-<<<<<<< HEAD
 - path: Assets/Scenes/Menu.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
-=======
-- path: Assets/Scenes/Base.unity
-  isLoaded: 1
-  isActive: 0
-  isSubScene: 0
-- path: Assets/Scenes/Tutorial.unity
-  isLoaded: 1
-  isActive: 1
-  isSubScene: 0
-- path: Assets/Scenes/Level 1.unity
-  isLoaded: 1
-  isActive: 0
-  isSubScene: 0
->>>>>>> e722df8ffc69bc15da6c72fda41c128d6ca4c698
