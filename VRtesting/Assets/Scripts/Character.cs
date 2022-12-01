@@ -3,19 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Character : MonoBehaviour
+public class Character :MonoBehaviour
 {
-    float healt;
-    float speed;
+    [SerializeField]
+     float health;
+    [SerializeField]
+     float speed;
 
-    public Character( float healt, float speed)
-    {
-        this.healt = healt;
-        this.speed = speed;
-
-    }
-
-    public float Healt { get => healt; set => healt = value; }
+    public float Healt { get => health; set => health = value; }
     public float Speed { get => speed; set => speed = value; }
 
 
@@ -49,7 +44,7 @@ public class Character : MonoBehaviour
 
     void Dead()
     {
-        if( healt <= 0)
+        if( health <= 0)
         {
             //Animacion morir
             //destruir
