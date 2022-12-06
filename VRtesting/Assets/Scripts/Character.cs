@@ -10,6 +10,8 @@ public class Character :MonoBehaviour
     [SerializeField]
      float speed;
 
+
+    //getters and setters
     public float Healt { get => health; set => health = value; }
     public float Speed { get => speed; set => speed = value; }
 

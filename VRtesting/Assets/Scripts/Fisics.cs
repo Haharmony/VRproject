@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class Fisics : MonoBehaviour
 {
+    // vector normal
+    public static Vector3 VectorUnitario(Vector3 direccion)
+    {
+        Vector3 unitario = direccion;
+        //magnitud del vector
+        float m = Mathf.Sqrt(Mathf.Pow(unitario.x, 2f) + Mathf.Pow(unitario.y, 2f) + Mathf.Pow(unitario.z, 2f));
+        //vector unitario
+        unitario = unitario / m
+            ;
+        return unitario;
+    }
+    
+    //Suma de Quaternion
+    public static Quaternion SumaQuaternion(Quaternion A, Quaternion B)
+    {
+        Quaternion resultado = new Quaternion(A.x + B.x, A.y + B.y, A.z + B.z, A.w + B.w);
+
+        return resultado;
+    }
+
     //Obteber quaternion
     public static Vector4 Quaternion(Vector3 vect, float grados)
     {
         //grados a radianes (piRad/180)=(x/grados)
         float rad = grados * (Mathf.PI / 180);
-        //magnitud del vector
-        float m = Mathf.Sqrt(Mathf.Pow(vect.x, 2f) + Mathf.Pow(vect.y, 2f) + Mathf.Pow(vect.z, 2f));
-        //vector unitario
-        Vector3 vectUni = new Vector3(vect.x / m, vect.y / m, vect.z / m);
+        //Vector unitario
+        Vector3 vectUni = VectorUnitario(vect);
         //Quaternion
         Vector4 quater = new Vector4(0f, 0f, 0f, 0f);
         quater.x = vectUni.x * Mathf.Sin(rad / 2);
@@ -172,13 +190,38 @@ public class Fisics : MonoBehaviour
     }
 
     //Regresa la distancia entre dos puntos dados
-    public static float Distance(Transform transA, Transform transB)
+    public static float Distance(Vector3 A, Vector3 B)
     {
-        Vector3 A = transA.position;
-        Vector3 B = transB.position;
-
         float distanciaAB = Mathf.Sqrt(Mathf.Pow(B.x - A.x, 2) + Mathf.Pow(B.y - A.y, 2) + Mathf.Pow(B.z - A.z, 2));
 
         return distanciaAB;
+    }
+
+    //Vector de distancia entre puntos
+    public static Vector3 DistanceVector(Vector3 A, Vector3 B)
+    {
+
+        Vector3 distanciaAB = B - A;
+        return distanciaAB;
+    }
+
+    //Angulo entre vectores
+    public static float AnguloVectores(Vector3 A, Vector3 B)
+    {
+        //Definicion de producto punto
+        // VectorA * VectorB = |VectorA| * |VectorB| * Cos(°)
+        //(VectorA * VectorB) /  (|VectorA| * |VectorB| ) =  Cos(°)
+
+        //producto punto
+        float punto = A.x * B.x + A.y * B.y;
+        //Magnitudes
+        float magnitudA = Mathf.Sqrt(A.x * A.x + A.y * A.y);
+        float magnitudB = Mathf.Sqrt(B.x * B.x + B.y * B.y);
+
+        //Cos(°) = punto / (magnitudA * magnitudB)
+        float cosenoAngulo = punto / (magnitudA * magnitudB);
+        // ° = ArcCos(Cos(°))
+        float angulo = Mathf.Acos(cosenoAngulo);
+        return angulo;
     }
 }
