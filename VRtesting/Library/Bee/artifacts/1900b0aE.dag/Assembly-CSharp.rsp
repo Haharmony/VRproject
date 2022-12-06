@@ -374,6 +374,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.SpatialTracking.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.XR.LegacyInputHelpers.ref.dll"
+"Assets/Environment Assets/Scripts_Env/AmmoItem.cs"
+"Assets/Environment Assets/Scripts_Env/HealthItem.cs"
 "Assets/Menu/Scripts/CreditosMenu.cs"
 "Assets/Menu/Scripts/ExtraMenu.cs"
 "Assets/Menu/Scripts/LevelsMenu.cs"
