@@ -37,7 +37,7 @@ public class Enemy : Character
     Collider attackHitBox;
 
     float distance;
-
+    float angle = 0;
     [SerializeField]
     float rangoDeteccion;
 
@@ -58,6 +58,7 @@ public class Enemy : Character
     {
         
     }
+
     void FixedUpdate()
     {
         SearchingPlayer();
@@ -72,35 +73,46 @@ public class Enemy : Character
     void  SearchingPlayer()
     {
         //generando rayo hacia adelante 
-        ray = new Ray(this.transform.position, Vector3.forward * rangoDeteccion);
+        ray = new Ray(this.transform.position, this.transform.forward * rangoDeteccion);
+
+        Debug.DrawRay(this.transform.position, this.transform.forward * rangoDeteccion);
         //Calculando la distancia con el jugados
         distance = Fisics.Distance(this.transform.position, player.transform.position);
 
         if(Physics.Raycast(ray, out hit))//Si el rayo colisiona
-            if(hit.transform.gameObject.name == "Player" )//Con el player
-                if(distance < 2)
+            if(hit.transform.gameObject.name == "Player")//Con el player
+                if(distance < 2.5)
                 {
                     enemyStates = EnemyStates.attack; //Si esta cerca ataca
                     attakDelayAux = 0;
                 }
-                else enemyStates = EnemyStates.walkingToPlayer; //Si esta lejos camina hacia el        
+                else
+                    enemyStates = EnemyStates.walkingToPlayer; //Si esta lejos camina hacia el 
+            else
+                enemyStates = EnemyStates.idle; //Si esta lejos camina hacia el  
+        else
+            enemyStates = EnemyStates.idle; //Si esta lejos camina hacia el  
     }
 
     //Fisics
     void Rotate(Vector3 ejeRotacion)
     {
-        Vector4 q = Fisics.Quaternion(ejeRotacion, turnSpeed * Time.fixedDeltaTime);
+        //Recuperando el angulo de rotacion actual
+        //angle = this.transform.rotation.y;
+        angle += turnSpeed * Time.fixedDeltaTime;
+        Debug.Log(angle);
+        Vector4 q = Fisics.Quaternion(ejeRotacion,  angle);
         Quaternion quater = new Quaternion(q.x, q.y, q.z, q.w);
-        this.transform.rotation = Fisics.SumaQuaternion(this.transform.rotation, quater);
+        this.transform.rotation = quater;
     }
     void Translate() 
     {
         //Sacando el vector de distancia entre el ebemigo y el player
         Vector3 direccion = Fisics.DistanceVector(this.transform.position, player.transform.position);
         //Sacando el vector unitario
-        direccion = Fisics.VectorUnitario(direccion);
+        direccion = Fisics.VectorUnitario(direccion) * Time.fixedDeltaTime;
         //Trasladando el enemigo en la direccion del vector unitario
-        transform.position = Fisics.Translate(direccion.x, direccion.y, direccion.z, this.transform.position) * Time.fixedDeltaTime;
+        this.transform.position = Fisics.Translate(direccion.x, direccion.y, direccion.z, this.transform.position) ;
     }
 
     //Parado
@@ -113,6 +125,7 @@ public class Enemy : Character
     //Girando
     void Turn()
     {
+        
         if (enemyStates == EnemyStates.turn && turndelayAux < turnDelay)
         {
             //animacion
@@ -127,13 +140,9 @@ public class Enemy : Character
             turndelayAux += Time.fixedDeltaTime;
 
             if(direccionRotacion == 0)
-            {
                 Rotate(Vector3.up );
-            }
             else
-            {
                 Rotate(Vector3.down);
-            }
         }
         else if(enemyStates == EnemyStates.turn )
         {
@@ -165,8 +174,9 @@ public class Enemy : Character
             //ROTAR
             //Angulo entre vectores de posicion de enemigo y el player
             float angulo = Fisics.AnguloVectores(this.transform.position, player.transform.position);
+            angle += angulo * Time.fixedDeltaTime;
             //Calculanto el quaternion de rotacion
-            Vector4 rotation = Fisics.Quaternion(Vector3.up, angulo);
+            Vector4 rotation = Fisics.Quaternion(Vector3.up, angle);
             //Asignando la nueva rotacion
             this.transform.rotation = new Quaternion(rotation.x, rotation.y, rotation.z, rotation.w);
         }
@@ -193,6 +203,11 @@ public class Enemy : Character
                 {
                     enemyStates = EnemyStates.turn;
                     Turn();
+                }
+                else
+                {
+                    Idle();
+                    turndelayAux = 0;
                 }
                 break;
             case EnemyStates.turn:
@@ -234,6 +249,7 @@ public class Enemy : Character
                 MoveToPlayer();
                 break;
         }
+        Debug.Log(enemyStates);
     }   
     
 }
