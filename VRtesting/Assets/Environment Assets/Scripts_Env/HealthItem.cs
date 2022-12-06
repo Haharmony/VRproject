@@ -6,7 +6,7 @@ public class HealthItem : MonoBehaviour
 {
     public static int HealthItemValue = 25; //Valor que da el Item de vida
     public static bool hasPickedUpHealthItem = false; //Boolean para checar si el item ha sido recogido
-    private bool hasEnteredTrigger = false; //Boolean para checar si el player está mirando el item
+    private bool hasEnteredTrigger = false; //Boolean para checar si el player está en el rango del item
     
     void Update()
     {
