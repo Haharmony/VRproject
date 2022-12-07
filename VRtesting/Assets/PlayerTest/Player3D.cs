@@ -33,7 +33,7 @@ public class Player3D : MonoBehaviour
             }
         }
     }
-    private void OnDrawGizmos()
+     void OnDrawGizmos()
     {
         Gizmos.DrawRay(transform.position + v3, Vector3.up * -1 * distancia);
     }
@@ -46,6 +46,7 @@ public class Player3D : MonoBehaviour
     {
         Vector3 RotaTargetZ = eje.transform.forward;
         RotaTargetZ.y = 0;
+        
         if (Input.GetKey(KeyCode.W))
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(RotaTargetZ), 0.3f);
