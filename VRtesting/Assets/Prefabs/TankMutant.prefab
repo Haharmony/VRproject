@@ -960,6 +960,8 @@ MonoBehaviour:
   grado: 0
   DistanceToHit: 2
   target: {fileID: 0}
+  EnemyLife: 1000
+  Damage: 90
   Atacando: 0
 --- !u!95 &6116530841637444903
 Animator:
