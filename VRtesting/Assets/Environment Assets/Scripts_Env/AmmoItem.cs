@@ -30,5 +30,6 @@ public class AmmoItem : MonoBehaviour
     {
         hasEnteredTrigger = false;
         hasPickedUpAmmoItem = false;
-    }
+    }}
+//pato
 }
