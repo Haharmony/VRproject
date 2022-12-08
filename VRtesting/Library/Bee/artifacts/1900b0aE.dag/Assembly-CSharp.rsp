@@ -384,6 +384,8 @@
 "Assets/Scripts/Menu/ExtraMenu.cs"
 "Assets/Scripts/Menu/LevelsMenu.cs"
 "Assets/Scripts/Menu/MainMenu.cs"
+"Assets/Scripts/Weapon/Bullet.cs"
+"Assets/Scripts/Weapon/Gun.cs"
 -langversion:9.0
 
 /deterministic
