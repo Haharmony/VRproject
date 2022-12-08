@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AmmoItem : MonoBehaviour
 {
-    public static int AmmoItemValue = 5;
+    public static int AmmoItemValue = 3;
     public static bool hasPickedUpAmmoItem = false;
     private bool hasEnteredTrigger = false;
 

@@ -8,7 +8,8 @@ public class EnemyWaves : MonoBehaviour
     public int xPos;
     public int zPos;
     public int enemyCount;
-    public int waveCount;
+    public int totalWaves;
+    public int currentWave;
     void Start()
     {
         StartCoroutine(WaveGenerator());
@@ -16,20 +17,59 @@ public class EnemyWaves : MonoBehaviour
 
     IEnumerator WaveGenerator()
     {
-        while(waveCount < 3) //Loop de rondas
+        currentWave = 1;
+        while (totalWaves < 3) //Numero de rondas totales.
         {
-            while(enemyCount < 8) //Loop de enemigos
+            if (currentWave <= 1) 
             {
-                xPos = Random.Range(6, 12);
-                zPos = Random.Range(-4, 4);
-                int rand = Random.Range(0, 3);
-                Instantiate(Enemies[rand], new Vector3(xPos, -6, zPos), Quaternion.identity);
-                yield return new WaitForSeconds(0.3f);
-                enemyCount++;
+                while (enemyCount < 10) //Loop de enemigos y numero de enemigos a crear por ronda
+                {
+                    xPos = Random.Range(6, 12);
+                    zPos = Random.Range(-4, 4);
+                    int rand = Random.Range(0, 1); //Enemigos que generará.
+                    Instantiate(Enemies[rand], new Vector3(xPos, -6, zPos), Quaternion.identity);
+                    yield return new WaitForSeconds(0.3f); //Tiempo entre enemigo creado
+                    enemyCount++;
+                }
+                enemyCount = 0;
+                totalWaves++;
+                currentWave++;
+                yield return new WaitForSeconds(3); //Tiempo entre rondas
             }
-            enemyCount = 0;
-            waveCount++;
-            yield return new WaitForSeconds(5);
+
+            if (currentWave > 1 && currentWave <= 2)
+            {
+                while (enemyCount < 5) //Loop de enemigos y numero de enemigos a crear por ronda
+                {
+                    xPos = Random.Range(6, 12);
+                    zPos = Random.Range(-4, 4);
+                    int rand = Random.Range(1, 2);
+                    Instantiate(Enemies[rand], new Vector3(xPos, -6, zPos), Quaternion.identity);
+                    yield return new WaitForSeconds(0.3f); //Tiempo entre enemigo creado
+                    enemyCount++;
+                }
+                enemyCount = 0;
+                totalWaves++;
+                currentWave++;
+                yield return new WaitForSeconds(3); //Tiempo entre rondas
+            }
+
+            if (currentWave == 3)
+            {
+                while (enemyCount < 1) //Loop de enemigos y numero de enemigos a crear por ronda
+                {
+                    xPos = Random.Range(6, 12);
+                    zPos = Random.Range(-4, 4);
+                    int rand = Random.Range(2, 3);
+                    Instantiate(Enemies[rand], new Vector3(xPos, -6, zPos), Quaternion.identity);
+                    yield return new WaitForSeconds(0.3f); //Tiempo entre enemigo creado
+                    enemyCount++;
+                }
+                enemyCount = 0;
+                totalWaves++;
+                currentWave++;
+                yield return new WaitForSeconds(3); //Tiempo entre rondas
+            }
         }
     }
 }
