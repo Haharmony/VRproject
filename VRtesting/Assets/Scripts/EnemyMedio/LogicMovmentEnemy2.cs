@@ -9,7 +9,7 @@ public class LogicMovmentEnemy2 : MonoBehaviour
     public Animator animator;
     public Quaternion angulo;
     public float grado;
-
+    public float DistanceToHit;
     public GameObject target;
 
 
@@ -52,7 +52,7 @@ public class LogicMovmentEnemy2 : MonoBehaviour
         }
         else
         {
-            if (Vector3.Distance(transform.position, target.transform.position) > 1 &&  !Atacando)
+            if (Vector3.Distance(transform.position, target.transform.position) > DistanceToHit &&  !Atacando)
             {
                 var lookPos = target.transform.position - transform.position;
                 lookPos.y = 0;
