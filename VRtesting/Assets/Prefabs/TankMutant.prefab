@@ -257,8 +257,69 @@ Transform:
   m_Children:
   - {fileID: 6231886194013399712}
   m_Father: {fileID: 2079224314393087523}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 15.085117, y: -0.39090255, z: -1.0514736}
+--- !u!1 &3382994660462932591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7277435713664870215}
+  - component: {fileID: 6871326018286267485}
+  - component: {fileID: 3441531544248194177}
+  m_Layer: 0
+  m_Name: BodyImpact
+  m_TagString: Body
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7277435713664870215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3382994660462932591}
+  m_LocalRotation: {x: 0.0014916632, y: -0.99606174, z: 0.008608994, w: -0.08823083}
+  m_LocalPosition: {x: 0.1735265, y: 0.22243197, z: 0.5127058}
+  m_LocalScale: {x: 0.4382888, y: 0.43828887, z: 0.4382888}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2079224314393087523}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6871326018286267485
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3382994660462932591}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1725502, y: 1, z: 1.0492897}
+  m_Center: {x: 0.6341648, y: 0, z: 1.2335644}
+--- !u!114 &3441531544248194177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3382994660462932591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898d773a16ed0fc498a42c0b80f2e051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParteDelCuerpo: Body
+  bala: BalaTest
+  logicMovment: {fileID: 6116530841637444902}
 --- !u!1 &3398555110546678859
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,6 +614,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7277435713664870215}
+  - {fileID: 4280158215179834058}
   - {fileID: 4883976829697579723}
   m_Father: {fileID: 1779514113539128752}
   m_RootOrder: 2
@@ -962,6 +1025,7 @@ MonoBehaviour:
   target: {fileID: 0}
   EnemyLife: 1000
   Damage: 90
+  CloseToProta: 1
   Atacando: 0
 --- !u!95 &6116530841637444903
 Animator:
@@ -1267,6 +1331,67 @@ Transform:
   m_Father: {fileID: 6955623510314091204}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 11.220822, y: -2.8379211, z: 13.654805}
+--- !u!1 &8215063741884643990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4280158215179834058}
+  - component: {fileID: 5952040878055299179}
+  - component: {fileID: 5750274108808072368}
+  m_Layer: 0
+  m_Name: HeadImpact
+  m_TagString: Head
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4280158215179834058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215063741884643990}
+  m_LocalRotation: {x: 0.0014916632, y: -0.99606174, z: 0.008608994, w: -0.08823083}
+  m_LocalPosition: {x: 0.173, y: 0.657, z: 0.505}
+  m_LocalScale: {x: 0.4382888, y: 0.43828887, z: 0.4382888}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2079224314393087523}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5952040878055299179
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215063741884643990}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5341644, y: 0.8381046, z: 0.6069679}
+  m_Center: {x: 0.5804513, y: -0.08094899, z: 0.8245418}
+--- !u!114 &5750274108808072368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215063741884643990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898d773a16ed0fc498a42c0b80f2e051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParteDelCuerpo: Head
+  bala: BalaTest
+  logicMovment: {fileID: 6116530841637444902}
 --- !u!1 &8426261597966710978
 GameObject:
   m_ObjectHideFlags: 0

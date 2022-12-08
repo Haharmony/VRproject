@@ -14,9 +14,16 @@ public class LogicMovmentEnemy2 : MonoBehaviour
     public int EnemyLife;
     public int Damage;
     public bool CloseToProta = true;
-
+    
 
     public bool Atacando;
+   // BalaTest balatest;
+
+
+
+
+    
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -101,6 +108,9 @@ public class LogicMovmentEnemy2 : MonoBehaviour
         animator.SetBool("attack", false);
         Atacando = false;
     }
+
+  
+
     void Update()
     {
         comportamientoEnemigo();

@@ -11,6 +11,7 @@ public class Camara : MonoBehaviour
     public float minLook;
     public Quaternion camRotation;
     // Start is called before the first frame update
+  
     void Start()
     {
         camRotation = transform.localRotation;

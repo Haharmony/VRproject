@@ -64,6 +64,67 @@ Transform:
   m_Father: {fileID: 79972598099231821}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 64.97593, y: -98.0038, z: 177.83588}
+--- !u!1 &352412478651899130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3095538472613202894}
+  - component: {fileID: 5132699687448525829}
+  - component: {fileID: 3314770656980221320}
+  m_Layer: 0
+  m_Name: BodyImpact
+  m_TagString: Body
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3095538472613202894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352412478651899130}
+  m_LocalRotation: {x: -0.06913748, y: -0.82174844, z: 0.07860333, w: 0.56015277}
+  m_LocalPosition: {x: -0.11034867, y: 0.12508863, z: -0.0040071197}
+  m_LocalScale: {x: 1.8207635, y: 1.820764, z: 1.8207637}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5456927480569749710}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5132699687448525829
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352412478651899130}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.17993164, y: 0.3237455, z: 0.20267105}
+  m_Center: {x: 0.0071029663, y: -0.061642468, z: -0.06032753}
+--- !u!114 &3314770656980221320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352412478651899130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898d773a16ed0fc498a42c0b80f2e051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParteDelCuerpo: Body
+  bala: BalaTest
+  logicMovment: {fileID: 633209942930172279}
 --- !u!1 &439055595124643428
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +265,7 @@ MonoBehaviour:
   target: {fileID: 0}
   EnemyLife: 50
   Damage: 10
+  CloseToProta: 1
   Atacando: 0
 --- !u!1 &749455982755331415
 GameObject:
@@ -300,6 +362,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1488258060377977894}
+  - {fileID: 3095538472613202894}
+  - {fileID: 1136499359417958316}
   m_Father: {fileID: 5751694268823966557}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 13.555124, y: 0.09699142, z: 4.2524714}
@@ -1495,6 +1559,51 @@ Transform:
   m_Father: {fileID: 8638680379585293503}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 5.802639, y: 1.7641122, z: 15.023315}
+--- !u!1 &4556140562116022844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1136499359417958316}
+  - component: {fileID: 3967023231830059827}
+  m_Layer: 0
+  m_Name: HeadImpact
+  m_TagString: Head
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1136499359417958316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4556140562116022844}
+  m_LocalRotation: {x: -0.06913748, y: -0.82174844, z: 0.07860333, w: 0.56015277}
+  m_LocalPosition: {x: -0.17, y: 0.764, z: 0.058}
+  m_LocalScale: {x: 1.8207635, y: 1.820764, z: 1.8207637}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5456927480569749710}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3967023231830059827
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4556140562116022844}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13823779, y: 0.20392436, z: 0.14289284}
+  m_Center: {x: 0.027949896, y: -0.09177634, z: -0.06390467}
 --- !u!1 &4659443393954729854
 GameObject:
   m_ObjectHideFlags: 0
