@@ -4,13 +4,19 @@
 TagManager:
   serializedVersion: 2
   tags:
+// TutorialLvl
   - Fire
   - Contaminated Fog
+  - Arma
+  - Body
+  - Head
+  - BalaTest
+// main
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Cloud Layer
