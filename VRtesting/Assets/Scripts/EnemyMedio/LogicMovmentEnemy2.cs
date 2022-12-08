@@ -12,6 +12,8 @@ public class LogicMovmentEnemy2 : MonoBehaviour
 
     public GameObject target;
 
+
+    public bool Atacando;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -51,16 +53,33 @@ public class LogicMovmentEnemy2 : MonoBehaviour
         }
         else
         {
-            var lookPos = target.transform.position - transform.position;
-            lookPos.y = 0;
-            var rotation = Quaternion.LookRotation(lookPos);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 3);
-            animator.SetBool("walk", false);
+            if (Vector3.Distance(transform.position, target.transform.position) > 1 &&  !Atacando)
+            {
+                var lookPos = target.transform.position - transform.position;
+                lookPos.y = 0;
+                var rotation = Quaternion.LookRotation(lookPos);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 3);
+                animator.SetBool("walk", false);
 
-            animator.SetBool("Run", true);
-            transform.Translate(Vector3.forward * 2 * Time.deltaTime);
+                animator.SetBool("Run", true);
+                transform.Translate(Vector3.forward * 2 * Time.deltaTime);
+                animator.SetBool("attack", false);
+            }
+            else
+            {
+                animator.SetBool("walk", false);
+                animator.SetBool("Run", false);
+                animator.SetBool("attack", true);
+                Atacando = true;
+            
+            }
         }
+    }
 
+    public void animacionFinal()
+    {
+        animator.SetBool("attack", false);
+        Atacando = false;
     }
     void Update()
     {

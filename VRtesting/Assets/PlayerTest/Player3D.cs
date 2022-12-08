@@ -12,6 +12,18 @@ public class Player3D : MonoBehaviour
     private RaycastHit Hit;
     public float distancia;
     public Vector3 v3;
+
+
+    private void OnTriggerEnter(Collider coll)
+    {
+        if (coll.CompareTag("Arma"))
+        {
+            print("Recibi daño");
+        }
+        
+    }
+
+
     void Start()
     {
         
