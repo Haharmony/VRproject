@@ -12,13 +12,17 @@ public class Player3D : MonoBehaviour
     private RaycastHit Hit;
     public float distancia;
     public Vector3 v3;
+    public int vidaJugador = 100;
 
+    // LogicMovmentEnemy2 logicMovmentEnemy;
 
     private void OnTriggerEnter(Collider coll)
     {
         if (coll.CompareTag("Arma"))
         {
             print("Recibi daño");
+            vidaJugador -= logicMovmentEnemy.Damage;
+            print(vidaJugador);
         }
         
     }

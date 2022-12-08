@@ -9,20 +9,7 @@ public class BalaTest : MonoBehaviour
   
    
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Head"))
-    //    {
-    //        logicMovment.EnemyLife -= 2*BulletDamage;
-    //        print(logicMovment.EnemyLife);
-    //    }
-    //    if (collision.gameObject.CompareTag("Body"))
-    //    {
-    //        logicMovment.EnemyLife -= BulletDamage;
-    //        print(logicMovment.EnemyLife);
-    //    }
-    //}
-
+  
     
 
     void Start()

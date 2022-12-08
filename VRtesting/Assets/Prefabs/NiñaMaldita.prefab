@@ -1569,6 +1569,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1136499359417958316}
   - component: {fileID: 3967023231830059827}
+  - component: {fileID: 6201669706440520873}
   m_Layer: 0
   m_Name: HeadImpact
   m_TagString: Head
@@ -1604,6 +1605,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.13823779, y: 0.20392436, z: 0.14289284}
   m_Center: {x: 0.027949896, y: -0.09177634, z: -0.06390467}
+--- !u!114 &6201669706440520873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4556140562116022844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 898d773a16ed0fc498a42c0b80f2e051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParteDelCuerpo: Head
+  bala: BalaTest
+  logicMovment: {fileID: 633209942930172279}
 --- !u!1 &4659443393954729854
 GameObject:
   m_ObjectHideFlags: 0
