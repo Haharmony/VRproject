@@ -11,7 +11,13 @@ public class ExtraMenu : MonoBehaviour
     [SerializeField]
     GameObject PersonajePanel;
     [SerializeField]
-    GameObject EnemigosPanel, EnemySlow, EnemyMedium, EnemyTank;
+    GameObject EnemigosPanel;
+    [SerializeField]
+    GameObject EnemySlow;
+    [SerializeField]
+    GameObject EnemyMedium;
+    [SerializeField]
+    GameObject EnemyTank;
 
     // Start is called before the first frame update
     void Start()
@@ -53,32 +59,32 @@ public class ExtraMenu : MonoBehaviour
     }
     public void EnemigoSlowpanle()
     {
-        extraPanel.SetActive(false);
+        EnemigosPanel.SetActive(false);
         EnemySlow.SetActive(true);
     }
     public void EnemigoMediumpanle()
     {
-        extraPanel.SetActive(false);
+        EnemigosPanel.SetActive(false);
         EnemyMedium.SetActive(true);
     }
     public void EnemigoTankpanle()
     {
-        extraPanel.SetActive(false);
+        EnemigosPanel.SetActive(false);
         EnemyTank.SetActive(true);
     }
     public void BackEnemigoSlow()
     {
-        extraPanel.SetActive(true);
+        EnemigosPanel.SetActive(true);
         EnemySlow.SetActive(false);
     }
     public void BackEnemigoMedium()
     {
-        extraPanel.SetActive(true);
+        EnemigosPanel.SetActive(true);
         EnemyMedium.SetActive(false);
     }
     public void BackEnemigoTank()
     {
-        extraPanel.SetActive(true);
+        EnemigosPanel.SetActive(true);
         EnemyTank.SetActive(false);
     }
 
