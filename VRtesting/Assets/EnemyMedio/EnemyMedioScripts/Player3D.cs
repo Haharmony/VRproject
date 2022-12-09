@@ -16,10 +16,26 @@ public class Player3D : MonoBehaviour
     private RaycastHit Hit;
     public float distancia;
     public Vector3 v3;
-    public int vidaJugador = 100;
+    public int playerHealth ;
     public bool EstoyMuerto = false;
 
-     LogicMovmentEnemy2 logicMovmentEnemy;
+    private float CurrentTimer = 0;
+    private float TimeBetweenTicks = 1f;
+    int TickDMG = 10;
+
+    //public int playerHealth;
+    private int maxHealth = 100;
+    private int minHealth = 0;
+
+    public int baseAmmo;
+    private int minBaseAmmo = 0;
+    private int maxBaseAmmo = 6;
+    //public Gun gun;
+
+    public GameObject flashlight;
+    public bool boolFlashLight;
+
+    LogicMovmentEnemy2 logicMovmentEnemy;
 
     public void OnTriggerEnter(Collider coll)
     {
@@ -33,9 +49,9 @@ public class Player3D : MonoBehaviour
   
     public void RecibirDano(int damage)
     {
-        vidaJugador -= damage;
-        print(vidaJugador);
-        if (vidaJugador <= 0)
+        playerHealth -= damage;
+        print(playerHealth);
+        if (playerHealth <= 0)
         {
             animator.SetBool("die", true);
             animator.SetBool("run", false);
@@ -46,8 +62,14 @@ public class Player3D : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        playerHealth = maxHealth;
+        baseAmmo = minBaseAmmo;
+        boolFlashLight = false;
 
-    // Update is called once per frame
+    }
+    
     void Update()
     {
         if (Physics.Raycast(transform.position + v3, transform.up*-1,out Hit, distancia))
@@ -62,16 +84,70 @@ public class Player3D : MonoBehaviour
                 inground = false;
             }
         }
+
+
+        //HEALTH PACK ITEM FUNCTION
+        if (HealthItem.hasPickedUpHealthItem)
+        {
+            playerHealth = playerHealth + HealthItem.HealthItemValue;
+            HealthItem.hasPickedUpHealthItem = false;
+
+            if (playerHealth > maxHealth)
+            {
+                playerHealth = maxHealth;
+            }
+        }
+
+        if (playerHealth <= minHealth)
+        {
+            playerHealth = minHealth;
+            GameOver();
+        }
+
+        //AMMO PACK ITEM FUNCTION
+        if (AmmoItem.hasPickedUpAmmoItem)
+        {
+            baseAmmo = baseAmmo + AmmoItem.AmmoItemValue;
+            AmmoItem.hasPickedUpAmmoItem = false;
+
+            if (baseAmmo > maxBaseAmmo)
+            {
+                baseAmmo = maxBaseAmmo;
+            }
+        }
+
+        if (baseAmmo <= minBaseAmmo)
+        {
+            baseAmmo = minBaseAmmo;
+        }
+
+
+        //FLASHLIGHT FUNCTION
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (boolFlashLight == false)
+            {
+                flashlight.SetActive(true);
+                Debug.Log("Pressing F");
+                boolFlashLight = true;
+            }
+            else
+            {
+                flashlight.SetActive(false);
+                boolFlashLight = false;
+            }
+        }
     }
+
      void OnDrawGizmos()
     {
         Gizmos.DrawRay(transform.position + v3, Vector3.up * -1 * distancia);
     }
+
     private void FixedUpdate()
     {
         Move();
     }
-
 
     void Move()
     {
@@ -130,5 +206,45 @@ public class Player3D : MonoBehaviour
             }
 
         }
+    }
+  
+    void Reload()
+    {
+        //gun.Reload(baseAmmo);
+        //baseAmmo = gun.Recarga(baseAmmo);
+    }
+
+    void TakeTickDamage()
+    {
+        CurrentTimer += Time.deltaTime;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Contaminated Fog")
+        {
+            Debug.Log("Receiving DMG");
+            TakeTickDamage();
+            if (CurrentTimer >= TimeBetweenTicks)
+            {
+                playerHealth  -= TickDMG;
+                CurrentTimer = 0;
+                if(playerHealth <= 0)
+                {
+                    animator.SetBool("die", true);
+                    animator.SetBool("run", false);
+                    EstoyMuerto = true;
+                    OnPlayerDeath?.Invoke();
+                }
+            }
+
+        }
+       
+    }
+
+
+    void GameOver()
+    {
+
     }
 }

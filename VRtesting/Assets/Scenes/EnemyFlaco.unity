@@ -4342,8 +4342,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Papa
       objectReference: {fileID: 0}
+    - target: {fileID: 9027014776688684655, guid: fe6a494876d4ba943aac3c0512c92841, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 3543534483550072456}
+    - target: {fileID: 9027014776688684655, guid: fe6a494876d4ba943aac3c0512c92841, type: 3}
+      propertyPath: eje
+      value: 
+      objectReference: {fileID: 8008755816672384926}
+    - target: {fileID: 9027014776688684655, guid: fe6a494876d4ba943aac3c0512c92841, type: 3}
+      propertyPath: speed
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027014776688684655, guid: fe6a494876d4ba943aac3c0512c92841, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 3543534483550072457}
+    - target: {fileID: 9027014776688684655, guid: fe6a494876d4ba943aac3c0512c92841, type: 3}
+      propertyPath: distancia
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027014776688684655, guid: fe6a494876d4ba943aac3c0512c92841, type: 3}
+      propertyPath: flashlight
+      value: 
+      objectReference: {fileID: 7635199254516112250, guid: 806019671fcdbc549bd52470f2ac9ce0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe6a494876d4ba943aac3c0512c92841, type: 3}
+--- !u!54 &3543534483550072456 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 3543534483970890493, guid: fe6a494876d4ba943aac3c0512c92841, type: 3}
+  m_PrefabInstance: {fileID: 3543534483550072455}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3543534483550072457 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6937721005937665891, guid: fe6a494876d4ba943aac3c0512c92841, type: 3}
+  m_PrefabInstance: {fileID: 3543534483550072455}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3983002451997776747
 PrefabInstance:
   m_ObjectHideFlags: 0

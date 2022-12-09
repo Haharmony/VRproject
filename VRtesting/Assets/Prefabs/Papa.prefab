@@ -1911,7 +1911,7 @@ GameObject:
   - component: {fileID: 6937721005937665891}
   - component: {fileID: 3543534483970890493}
   - component: {fileID: 3543534483970890494}
-  - component: {fileID: 3543534483970890495}
+  - component: {fileID: 9027014776688684655}
   m_Layer: 0
   m_Name: Papa
   m_TagString: Papa
@@ -1986,7 +1986,7 @@ CapsuleCollider:
   m_Height: 1.928627
   m_Direction: 1
   m_Center: {x: 0, y: 1.0123167, z: 0}
---- !u!114 &3543534483970890495
+--- !u!114 &9027014776688684655
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1998,14 +1998,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c031346a85c49449bea4111bb09799c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 3543534483970890493}
-  speed: 150
-  animator: {fileID: 6937721005937665891}
+  rb: {fileID: 0}
+  speed: 0
+  animator: {fileID: 0}
   eje: {fileID: 0}
   inground: 0
-  distancia: 0.4
-  v3: {x: 0.01, y: 0.33, z: 0}
+  distancia: 0
+  v3: {x: 0, y: 0, z: 0}
   vidaJugador: 100
+  EstoyMuerto: 0
 --- !u!1 &4478875227459306744
 GameObject:
   m_ObjectHideFlags: 0
