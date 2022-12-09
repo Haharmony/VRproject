@@ -19,9 +19,6 @@ public class LogicMovmentEnemy2 : MonoBehaviour
     public bool Atacando;
    // BalaTest balatest;
 
-
-
-
     
 
     void Start()
