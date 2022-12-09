@@ -1914,7 +1914,7 @@ GameObject:
   - component: {fileID: 3543534483970890495}
   m_Layer: 0
   m_Name: Papa
-  m_TagString: Untagged
+  m_TagString: Papa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2005,6 +2005,7 @@ MonoBehaviour:
   inground: 0
   distancia: 0.4
   v3: {x: 0.01, y: 0.33, z: 0}
+  vidaJugador: 100
 --- !u!1 &4478875227459306744
 GameObject:
   m_ObjectHideFlags: 0

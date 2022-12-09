@@ -1329,6 +1329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3983002452950625757}
   - component: {fileID: 3983002452950625756}
+  - component: {fileID: 3547836352203888287}
   m_Layer: 0
   m_Name: "PatadaNi\xF1a"
   m_TagString: Arma
@@ -1364,6 +1365,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.19858184, y: 0.31353942, z: 0.24372396}
   m_Center: {x: -0.19706824, y: -0.1987123, z: -0.3781369}
+--- !u!114 &3547836352203888287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3983002452950625758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd08e093c0454845ab62ba6e3a45431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &4155812311527040655
 GameObject:
   m_ObjectHideFlags: 0

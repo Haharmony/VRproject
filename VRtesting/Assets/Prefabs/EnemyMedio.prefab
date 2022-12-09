@@ -250,6 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 666290194817103032}
   - component: {fileID: 666290194817103033}
+  - component: {fileID: 5878729363956548228}
   m_Layer: 0
   m_Name: punch
   m_TagString: Arma
@@ -285,6 +286,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.25213143, y: 0.3223132, z: 0.3931392}
   m_Center: {x: -0.4574133, y: -0.11915051, z: 0.25079867}
+--- !u!114 &5878729363956548228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666290194817103035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd08e093c0454845ab62ba6e3a45431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 30
 --- !u!1 &801641958975991680
 GameObject:
   m_ObjectHideFlags: 0

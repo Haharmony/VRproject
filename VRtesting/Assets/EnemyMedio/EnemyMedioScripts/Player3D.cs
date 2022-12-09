@@ -13,21 +13,31 @@ public class Player3D : MonoBehaviour
     public float distancia;
     public Vector3 v3;
     public int vidaJugador = 100;
+    public bool EstoyMuerto = false;
 
-    // LogicMovmentEnemy2 logicMovmentEnemy;
+     LogicMovmentEnemy2 logicMovmentEnemy;
 
-    private void OnTriggerEnter(Collider coll)
+    public void OnTriggerEnter(Collider coll)
     {
         if (coll.CompareTag("Arma"))
         {
             print("Recibi daño");
-            vidaJugador -= logicMovmentEnemy.Damage;
-            print(vidaJugador);
+           
         }
         
     }
   
-
+    public void RecibirDano(int damage)
+    {
+        vidaJugador -= damage;
+        print(vidaJugador);
+        if (vidaJugador <= 0)
+        {
+            animator.SetBool("die", true);
+            animator.SetBool("run", false);
+            EstoyMuerto = true;
+        }
+    }
 
     void Start()
     {
@@ -61,56 +71,59 @@ public class Player3D : MonoBehaviour
 
     void Move()
     {
-        Vector3 RotaTargetZ = eje.transform.forward;
-        RotaTargetZ.y = 0;
-        
-        if (Input.GetKey(KeyCode.W))
+        if (!EstoyMuerto)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(RotaTargetZ), 0.3f);
-            var dir = transform.forward * speed * Time.fixedDeltaTime;
-            dir.y = rb.velocity.y;
-            rb.velocity = dir;
-            animator.SetBool("run", true);
+            Vector3 RotaTargetZ = eje.transform.forward;
+            RotaTargetZ.y = 0;
 
-        }
-        else
-        {
-            if (inground)
+            if (Input.GetKey(KeyCode.W))
             {
-                rb.velocity = Vector3.zero;
-                    }
-            animator.SetBool("run", false);
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(RotaTargetZ), 0.3f);
+                var dir = transform.forward * speed * Time.fixedDeltaTime;
+                dir.y = rb.velocity.y;
+                rb.velocity = dir;
+                animator.SetBool("run", true);
+
+            }
+            else
+            {
+                if (inground)
+                {
+                    rb.velocity = Vector3.zero;
+                }
+                animator.SetBool("run", false);
+
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(RotaTargetZ * -1), 0.3f);
+                var dir = transform.forward * speed * Time.fixedDeltaTime;
+                dir.y = rb.velocity.y;
+                rb.velocity = dir;
+                animator.SetBool("run", true);
+
+            }
+            Vector3 RotaTargetX = eje.transform.right;
+            RotaTargetX.y = 0;
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(RotaTargetX), 0.3f);
+                var dir = transform.forward * speed * Time.fixedDeltaTime;
+                dir.y = rb.velocity.y;
+                rb.velocity = dir;
+                animator.SetBool("run", true);
+
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(RotaTargetX * -1), 0.3f);
+                var dir = transform.forward * speed * Time.fixedDeltaTime;
+                dir.y = rb.velocity.y;
+                rb.velocity = dir;
+                animator.SetBool("run", true);
+
+            }
 
         }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(RotaTargetZ * -1), 0.3f);
-            var dir = transform.forward * speed * Time.fixedDeltaTime;
-            dir.y = rb.velocity.y;
-            rb.velocity = dir;
-            animator.SetBool("run", true);
-           
-        }
-        Vector3 RotaTargetX = eje.transform.right;
-        RotaTargetX.y = 0;
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(RotaTargetX), 0.3f);
-            var dir = transform.forward * speed * Time.fixedDeltaTime;
-            dir.y = rb.velocity.y;
-            rb.velocity = dir;
-            animator.SetBool("run", true);
-          
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(RotaTargetX * -1), 0.3f);
-            var dir = transform.forward * speed * Time.fixedDeltaTime;
-            dir.y = rb.velocity.y;
-            rb.velocity = dir;
-            animator.SetBool("run", true);
-
-        }
-
     }
 }
