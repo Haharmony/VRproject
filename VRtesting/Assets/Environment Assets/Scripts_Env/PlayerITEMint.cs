@@ -19,7 +19,6 @@ public class PlayerITEMint : MonoBehaviour
 
     public GameObject flashlight;
     public bool boolFlashLight;
-    
 
     void Start()
     {
@@ -84,7 +83,7 @@ public class PlayerITEMint : MonoBehaviour
             }
         }
 
-        Win();
+        
     }
 
     void Reload()
@@ -118,17 +117,6 @@ public class PlayerITEMint : MonoBehaviour
 
     }
 
-    void Win()
-    {
-        if (EnemyWaves.totalWaves == 3 && EnemyWaves.Enemy != null)
-        {
-            Debug.Log("FINAL ROUND");
-        }
-        else
-        {
-            Debug.Log("bruh");
-        }
-    }
 
     /*
     void TakeTickdamage()

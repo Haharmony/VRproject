@@ -44,9 +44,10 @@ GameObject:
   - component: {fileID: 666290193315490257}
   - component: {fileID: 666290193315490252}
   - component: {fileID: 666290193315490256}
+  - component: {fileID: -8048474414310462894}
   m_Layer: 0
   m_Name: EnemyMedio
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,12 +136,24 @@ MonoBehaviour:
   animator: {fileID: 666290193315490252}
   angulo: {x: 0, y: 0, z: 0, w: 0}
   grado: 0
-  DistanceToHit: 0
+  DistanceToHit: 1
   target: {fileID: 0}
   EnemyLife: 150
   Damage: 40
   CloseToProta: 1
   Atacando: 0
+--- !u!114 &-8048474414310462894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431864764337721495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493612696aa3df94689708e1d062a9e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &448710670888367052
 GameObject:
   m_ObjectHideFlags: 0
