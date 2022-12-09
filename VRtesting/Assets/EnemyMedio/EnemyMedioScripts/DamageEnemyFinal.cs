@@ -9,21 +9,11 @@ public class DamageEnemyFinal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //funciona llamando la funcion de player3D para recibir daño en ñla voida del player
         if (other.tag =="Papa")
         {
             other.GetComponent<Player3D>().RecibirDano(damage);
         }
     }
 
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

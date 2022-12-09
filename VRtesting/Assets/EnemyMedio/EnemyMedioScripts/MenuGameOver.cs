@@ -19,6 +19,7 @@ public class MenuGameOver : MonoBehaviour
     }
     public void EnableGameOverMenu()
     {
+        //Activar el menu de gameover con el evento de arriba
         MenuOver.SetActive(true);
     }
 
@@ -26,6 +27,11 @@ public class MenuGameOver : MonoBehaviour
     {
         //Para resetear el nivel
         SceneManager.LoadScene(5);
+    }
+    public void MainMenuBack()
+    {
+        //Para resetear el nivel
+        SceneManager.LoadScene(3);
     }
 
 }

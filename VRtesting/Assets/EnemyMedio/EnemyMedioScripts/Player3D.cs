@@ -46,10 +46,6 @@ public class Player3D : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -76,8 +72,10 @@ public class Player3D : MonoBehaviour
         Move();
     }
 
+
     void Move()
     {
+        //Funcion literal que sirve para mover a pápa
         if (!EstoyMuerto)
         {
             Vector3 RotaTargetZ = eje.transform.forward;

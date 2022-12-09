@@ -29,14 +29,5 @@ public class DamageBulletOnBody : MonoBehaviour
         }
 
     }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  //Se piden don strings, la primera es para ver en que parte del cuerpo esta recibiendo daño ya sea body o head, el segundo string es para ver que tipo de bala le afecta 
 }
