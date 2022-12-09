@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player3D : MonoBehaviour
 {
+
+
+    public static event Action OnPlayerDeath;
     public Rigidbody rb;
     public float speed;
     public Animator animator;
@@ -36,13 +40,12 @@ public class Player3D : MonoBehaviour
             animator.SetBool("die", true);
             animator.SetBool("run", false);
             EstoyMuerto = true;
+            OnPlayerDeath?.Invoke();
+
+        
         }
     }
 
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -69,8 +72,10 @@ public class Player3D : MonoBehaviour
         Move();
     }
 
+
     void Move()
     {
+        //Funcion literal que sirve para mover a pápa
         if (!EstoyMuerto)
         {
             Vector3 RotaTargetZ = eje.transform.forward;
