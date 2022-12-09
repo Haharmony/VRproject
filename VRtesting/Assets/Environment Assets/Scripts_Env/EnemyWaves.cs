@@ -5,14 +5,16 @@ using UnityEngine;
 public class EnemyWaves : MonoBehaviour
 {
     public GameObject[] Enemies;
+    static  public GameObject[] Enemy;
     public int xPos;
     public int zPos;
-    public int enemyCount;
-    public int totalWaves;
-    public int currentWave;
+    static public int enemyCount;
+    static public int totalWaves;
+    static public int currentWave;
     void Start()
     {
         StartCoroutine(WaveGenerator());
+        Enemy = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
     IEnumerator WaveGenerator()

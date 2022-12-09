@@ -18,14 +18,15 @@ public class PlayerITEMint : MonoBehaviour
     //public Gun gun;
 
     public GameObject flashlight;
-    public bool boolFlashLight = false;
+    public bool boolFlashLight;
     
 
     void Start()
     {
         playerHealth = maxHealth;
         baseAmmo = minBaseAmmo;
-        flashlight.SetActive(false);
+        boolFlashLight = false;
+        
     }
 
     void Update()
@@ -82,6 +83,8 @@ public class PlayerITEMint : MonoBehaviour
                 boolFlashLight = false;
             }
         }
+
+        Win();
     }
 
     void Reload()
@@ -113,6 +116,18 @@ public class PlayerITEMint : MonoBehaviour
     void GameOver()
     {
 
+    }
+
+    void Win()
+    {
+        if (EnemyWaves.totalWaves == 3 && EnemyWaves.Enemy != null)
+        {
+            Debug.Log("FINAL ROUND");
+        }
+        else
+        {
+            Debug.Log("bruh");
+        }
     }
 
     /*

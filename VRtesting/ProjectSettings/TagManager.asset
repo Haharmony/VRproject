@@ -9,6 +9,8 @@ TagManager:
   - Body
   - BalaTest
   - Papa
+  - Contaminated Fog
+  - Enemy
   layers:
   - Default
   - TransparentFX
