@@ -27,7 +27,7 @@ public class LogicMovmentEnemy2 : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        target = GameObject.Find("Papa");
+        target = GameObject.Find("Papa"); //el target va a ser el gameobject que tenga el nombre de papa
     }
 
     public void comportamientoEnemigo()
