@@ -17,28 +17,30 @@ public class Gun : MonoBehaviour
     [SerializeField]
     Transform disparador;
 
-
+    public bool SiDisparo;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+ 
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        Disparar(); 
+     if (SiDisparo)
+        {
+            Disparar();
+        }
 
     }
 
 
     //Instancia una bala en la puntita de la pistola
-    void Disparar()
+   public void Disparar()
     {
-        if (Input.GetKey(KeyCode.Space)) //Cambiar a control oculus
-        {
+        
             
             if (actualbullets > 0 && enfrimaientoAux <= 0) // Hay balas y esta frio
             {
@@ -61,15 +63,15 @@ public class Gun : MonoBehaviour
             else if (actualbullets <= 0 && enfrimaientoAux > 0) //Con balas y caliente
                 return;
 
-        }
-        else //sim no hay input
-        {
-            enfrimaientoAux -= Time.deltaTime;
-            if (enfrimaientoAux <= 0)
-                enfrimaientoAux = 0;
-            return;
-        }
+        
+    
 
+    }
+    public void enfriamientoPistola()
+    {
+        enfrimaientoAux -= Time.deltaTime;
+        if (enfrimaientoAux <= 0)
+            enfrimaientoAux = 0;
     }
 
     //Recarga el arma

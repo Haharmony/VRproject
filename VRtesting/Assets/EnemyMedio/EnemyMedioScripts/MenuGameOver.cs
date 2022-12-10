@@ -20,7 +20,8 @@ public class MenuGameOver : MonoBehaviour
     public void EnableGameOverMenu()
     {
         //Activar el menu de gameover con el evento de arriba
-        MenuOver.SetActive(true);
+        SceneManager.LoadScene(6);
+        //MenuOver.SetActive(true);
     }
 
     public void RestardLevel()

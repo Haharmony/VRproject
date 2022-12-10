@@ -8,12 +8,12 @@ public class Player3D : MonoBehaviour
 
 
     public static event Action OnPlayerDeath;
-    public Rigidbody rb;
+    //public Rigidbody rb;
     public float speed;
-    public Animator animator;
-    public Transform eje;
-    public bool inground;
-    private RaycastHit Hit;
+   // public Animator animator;
+   // public Transform eje;
+    //public bool inground;
+    //private RaycastHit Hit;
     public float distancia;
     public Vector3 v3;
     public int playerHealth ;
@@ -53,9 +53,9 @@ public class Player3D : MonoBehaviour
         print(playerHealth);
         if (playerHealth <= 0)
         {
-            animator.SetBool("die", true);
-            animator.SetBool("run", false);
-            EstoyMuerto = true;
+            //animator.SetBool("die", true);
+            //animator.SetBool("run", false);
+            //EstoyMuerto = true;
             OnPlayerDeath?.Invoke();
 
         
@@ -72,18 +72,18 @@ public class Player3D : MonoBehaviour
     
     void Update()
     {
-        if (Physics.Raycast(transform.position + v3, transform.up*-1,out Hit, distancia))
-        {
-            if (Hit.collider.tag == "piso")
-            {
-                inground = true;
+        //if (Physics.Raycast(transform.position + v3, transform.up*-1,out Hit, distancia))
+        //{
+        //    if (Hit.collider.tag == "piso")
+        //    {
+        //        inground = true;
 
-            }
-            else
-            {
-                inground = false;
-            }
-        }
+        //    }
+        //    else
+        //    {
+        //        inground = false;
+        //    }
+        //}
 
 
         //HEALTH PACK ITEM FUNCTION
@@ -123,20 +123,20 @@ public class Player3D : MonoBehaviour
 
 
         //FLASHLIGHT FUNCTION
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            if (boolFlashLight == false)
-            {
-                flashlight.SetActive(true);
-                Debug.Log("Pressing F");
-                boolFlashLight = true;
-            }
-            else
-            {
-                flashlight.SetActive(false);
-                boolFlashLight = false;
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    if (boolFlashLight == false)
+        //    {
+        //        flashlight.SetActive(true);
+        //        Debug.Log("Pressing F");
+        //        boolFlashLight = true;
+        //    }
+        //    else
+        //    {
+        //        flashlight.SetActive(false);
+        //        boolFlashLight = false;
+        //    }
+        //}
     }
 
      void OnDrawGizmos()
@@ -144,75 +144,75 @@ public class Player3D : MonoBehaviour
         Gizmos.DrawRay(transform.position + v3, Vector3.up * -1 * distancia);
     }
 
-    private void FixedUpdate()
-    {
-        Move();
-    }
+    //private void FixedUpdate()
+    //{
+    //    Move();
+    //}
 
-    void Move()
-    {
-        //Funcion literal que sirve para mover a pápa
-        if (!EstoyMuerto)
-        {
-            Vector3 RotaTargetZ = eje.transform.forward;
-            RotaTargetZ.y = 0;
+    //void Move()
+    //{
+    //    //Funcion literal que sirve para mover a pápa
+    //    if (!EstoyMuerto)
+    //    {
+    //        Vector3 RotaTargetZ = eje.transform.forward;
+    //        RotaTargetZ.y = 0;
 
-            if (Input.GetKey(KeyCode.W))
-            {
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(RotaTargetZ), 0.3f);
-                var dir = transform.forward * speed * Time.fixedDeltaTime;
-                dir.y = rb.velocity.y;
-                rb.velocity = dir;
-                animator.SetBool("run", true);
+    //        if (Input.GetKey(KeyCode.W))
+    //        {
+    //            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(RotaTargetZ), 0.3f);
+    //            var dir = transform.forward * speed * Time.fixedDeltaTime;
+    //            dir.y = rb.velocity.y;
+    //            rb.velocity = dir;
+    //            animator.SetBool("run", true);
 
-            }
-            else
-            {
-                if (inground)
-                {
-                    rb.velocity = Vector3.zero;
-                }
-                animator.SetBool("run", false);
+    //        }
+    //        else
+    //        {
+    //            if (inground)
+    //            {
+    //                rb.velocity = Vector3.zero;
+    //            }
+    //            animator.SetBool("run", false);
 
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(RotaTargetZ * -1), 0.3f);
-                var dir = transform.forward * speed * Time.fixedDeltaTime;
-                dir.y = rb.velocity.y;
-                rb.velocity = dir;
-                animator.SetBool("run", true);
+    //        }
+    //        if (Input.GetKey(KeyCode.S))
+    //        {
+    //            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(RotaTargetZ * -1), 0.3f);
+    //            var dir = transform.forward * speed * Time.fixedDeltaTime;
+    //            dir.y = rb.velocity.y;
+    //            rb.velocity = dir;
+    //            animator.SetBool("run", true);
 
-            }
-            Vector3 RotaTargetX = eje.transform.right;
-            RotaTargetX.y = 0;
-            if (Input.GetKey(KeyCode.D))
-            {
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(RotaTargetX), 0.3f);
-                var dir = transform.forward * speed * Time.fixedDeltaTime;
-                dir.y = rb.velocity.y;
-                rb.velocity = dir;
-                animator.SetBool("run", true);
+    //        }
+    //        Vector3 RotaTargetX = eje.transform.right;
+    //        RotaTargetX.y = 0;
+    //        if (Input.GetKey(KeyCode.D))
+    //        {
+    //            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(RotaTargetX), 0.3f);
+    //            var dir = transform.forward * speed * Time.fixedDeltaTime;
+    //            dir.y = rb.velocity.y;
+    //            rb.velocity = dir;
+    //            animator.SetBool("run", true);
 
-            }
-            if (Input.GetKey(KeyCode.A))
-            {
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(RotaTargetX * -1), 0.3f);
-                var dir = transform.forward * speed * Time.fixedDeltaTime;
-                dir.y = rb.velocity.y;
-                rb.velocity = dir;
-                animator.SetBool("run", true);
+    //        }
+    //        if (Input.GetKey(KeyCode.A))
+    //        {
+    //            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(RotaTargetX * -1), 0.3f);
+    //            var dir = transform.forward * speed * Time.fixedDeltaTime;
+    //            dir.y = rb.velocity.y;
+    //            rb.velocity = dir;
+    //            animator.SetBool("run", true);
 
-            }
+    //        }
 
-        }
-    }
+    //    }
+    //}
   
-    void Reload()
-    {
-        //gun.Reload(baseAmmo);
-        //baseAmmo = gun.Recarga(baseAmmo);
-    }
+    //void Reload()
+    //{
+    //    //gun.Reload(baseAmmo);
+    //    //baseAmmo = gun.Recarga(baseAmmo);
+    //}
 
     void TakeTickDamage()
     {
@@ -231,9 +231,9 @@ public class Player3D : MonoBehaviour
                 CurrentTimer = 0;
                 if(playerHealth <= 0)
                 {
-                    animator.SetBool("die", true);
-                    animator.SetBool("run", false);
-                    EstoyMuerto = true;
+                    //animator.SetBool("die", true);
+                    //animator.SetBool("run", false);
+                    //EstoyMuerto = true;
                     OnPlayerDeath?.Invoke();
                 }
             }
