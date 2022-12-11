@@ -16,7 +16,7 @@ public class Player3D : MonoBehaviour
     //private RaycastHit Hit;
     public float distancia;
     public Vector3 v3;
-    public int playerHealth ;
+    public float playerHealth = 100 ;
     public bool EstoyMuerto = false;
 
     private float CurrentTimer = 0;
@@ -24,6 +24,7 @@ public class Player3D : MonoBehaviour
     int TickDMG = 10;
 
     //public int playerHealth;
+    public float maxHealth2 = 100;
     private int maxHealth = 100;
     private int minHealth = 0;
 
@@ -32,7 +33,7 @@ public class Player3D : MonoBehaviour
     private int maxBaseAmmo = 6;
     //public Gun gun;
 
-    public GameObject flashlight;
+   // public GameObject flashlight;
     public bool boolFlashLight;
 
     LogicMovmentEnemy2 logicMovmentEnemy;
@@ -64,7 +65,7 @@ public class Player3D : MonoBehaviour
 
     void Start()
     {
-        playerHealth = maxHealth;
+       // playerHealth = 100;
         baseAmmo = minBaseAmmo;
         boolFlashLight = false;
 
@@ -239,7 +240,19 @@ public class Player3D : MonoBehaviour
             }
 
         }
-       
+        if (other.gameObject.tag == "Good Fog")
+        {
+            Debug.Log("Receiving DMG");
+            TakeTickDamage();
+            if (CurrentTimer >= TimeBetweenTicks)
+            {
+                playerHealth += TickDMG;
+                CurrentTimer = 0;
+                
+            }
+
+        }
+
     }
 
 

@@ -11,6 +11,7 @@ TagManager:
   - Papa
   - Contaminated Fog
   - Enemy
+  - Good Fog
   layers:
   - Default
   - TransparentFX
