@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EnemyWaves2 : MonoBehaviour
+public class EnemyWavesInfinity : MonoBehaviour
 {
     public GameObject[] Enemies;
     public int xPos;
@@ -17,26 +17,26 @@ public class EnemyWaves2 : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(WaveGenerator2());
+        StartCoroutine(WaveGenerator3());
     }
 
     void Update()
     {
         viewCurrentEnemies = currentEnemies;
-        Win2();
+        Win3();
     }
 
-    public void Win2()
+    public void Win3()
     {
-        if (currentWave == 3 && currentEnemies == 0)
+        if (currentWave == 90000 && currentEnemies == 0)
         {
             Debug.Log("WIN");
             menuWin.SetActive(true);
-            StartCoroutine("terminarLvl2");
+            StartCoroutine("terminarLvl3");
 
         }
     }
-    public IEnumerator terminarLvl2()
+    public IEnumerator terminarLvl3()
     {
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene(6);
@@ -44,13 +44,13 @@ public class EnemyWaves2 : MonoBehaviour
 
 
 
-    IEnumerator WaveGenerator2()
+    IEnumerator WaveGenerator3()
     {
-        totalWaves = 3;
+        totalWaves = 90000;
         currentWave = 1;
-        while (totalWaves == 3) //Numero de rondas totales.
+        while (totalWaves == 90000) //Numero de rondas totales.
         {
-            if (currentWave <= 1)
+            if (currentWave <= 5)
             {
                 while (enemyCount < 10) //Loop de enemigos y numero de enemigos a crear por ronda
                 {
@@ -68,7 +68,7 @@ public class EnemyWaves2 : MonoBehaviour
                 yield return new WaitForSeconds(20); //Tiempo entre rondas
             }
 
-            if (currentWave == 2 ) //
+            if (currentWave > 5 && currentWave <= 7) //
             {
                 while (enemyCount < 5) //Loop de enemigos y numero de enemigos a crear por ronda
                 {
@@ -86,9 +86,9 @@ public class EnemyWaves2 : MonoBehaviour
                 yield return new WaitForSeconds(20); //Tiempo entre rondas               
             }
 
-            if (currentWave == 3)
+            if (currentWave > 7 && currentWave <= 90000)
             {
-                while (enemyCount < 1) //Loop de enemigos y numero de enemigos a crear por ronda
+                while (enemyCount < 3) //Loop de enemigos y numero de enemigos a crear por ronda
                 {
                     xPos = Random.Range(-7, -10);
                     zPos = Random.Range(-22, -25);
