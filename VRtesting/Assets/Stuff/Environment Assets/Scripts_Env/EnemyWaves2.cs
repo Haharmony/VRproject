@@ -39,7 +39,7 @@ public class EnemyWaves2 : MonoBehaviour
     public IEnumerator terminarLvl2()
     {
         yield return new WaitForSeconds(5);
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(0);
     }
 
 
