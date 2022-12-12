@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField]
-    float enfrimaientoAux = 0;
-    [SerializeField]
-    float enfriamiento = 2;
-    [SerializeField]
-    GameObject bullet;
-    [SerializeField]
-    int maxCapacity = 6;
-    [SerializeField]
-    int actualbullets = 6;
-    [SerializeField]
-    Transform disparador;
+    
+ //public float enfrimaientoAux = 0;
+   
+ //public   float enfriamiento = 2;
+   
+ public GameObject bullet;
+   
+ public int maxCapacity = 6;
+   
+ public  int actualbullets;
+  
+ public Transform disparador;
 
     
-    public bool SiDisparo;
-    public int totalBullets;
-    public string TotalBulletsString;
+public bool SiDisparo;
+public int totalBullets;
+public int PickUpBullestGround = 0;
+public string TotalBulletsString;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,54 +48,74 @@ public class Gun : MonoBehaviour
     {
         
             
-            if (actualbullets > 0 && enfrimaientoAux <= 0) // Hay balas y esta frio
+            if (actualbullets > 0 /*&& enfrimaientoAux <= 0*/) // Hay balas y esta frio
             {
                 GameObject balaAux = GameObject.Instantiate(bullet, disparador.transform.position, disparador.transform.rotation);
                 Destroy(balaAux, 2);
-                enfrimaientoAux = enfriamiento;
+                //enfrimaientoAux = enfriamiento;
                 actualbullets--;
                 //reproducir sonido disparo
             }
-            else if (actualbullets > 0 && enfrimaientoAux > 0) //hay balas y caliente
-            {
-                enfrimaientoAux -=  Time.deltaTime;
-                return;
+            //else if (actualbullets > 0 /*&& enfrimaientoAux > 0*/) //hay balas y caliente
+            //{
+            //    enfrimaientoAux -=  Time.deltaTime;
+            //    return;
             }
-            else if (actualbullets <= 0 && enfrimaientoAux <= 0) //Sin balas frio
-            {
-                //sonido sin balas
-                enfrimaientoAux = 0;
-            }
-            else if (actualbullets <= 0 && enfrimaientoAux > 0) //Con balas y caliente
-                return;
+            //else if (actualbullets <= 0 && enfrimaientoAux <= 0) //Sin balas frio
+            //{
+            //    //sonido sin balas
+            //    enfrimaientoAux = 0;
+            //}
+            //else if (actualbullets <= 0 && enfrimaientoAux > 0) //Con balas y caliente
+            //    return;
 
         
     
 
     }
-    public void enfriamientoPistola()
-    {
-        enfrimaientoAux -= Time.deltaTime;
-        if (enfrimaientoAux <= 0)
-            enfrimaientoAux = 0;
-    }
+    //public void enfriamientoPistola()
+    //{
+    //    enfrimaientoAux -= Time.deltaTime;
+    //    if (enfrimaientoAux <= 0)
+    //        enfrimaientoAux = 0;
+    //}
 
     //Recarga el arma
-    int Recargar(int baseArmo)
-    {
-        int toReload = maxCapacity - actualbullets; 
+    //int Recargar(int baseArmo)
+    //{
+    //    int toReload = maxCapacity - actualbullets; 
         
-        if(baseArmo < toReload)
-        {
-            maxCapacity += baseArmo;
-           baseArmo = baseArmo - baseArmo;
-        }
-        else
-        {
-            maxCapacity += toReload;
-            baseArmo -= toReload;
-        }
+    //    if(baseArmo < toReload)
+    //    {
+    //        maxCapacity += baseArmo;
+    //       baseArmo = baseArmo - baseArmo;
+    //    }
+    //    else
+    //    {
+    //        maxCapacity += toReload;
+    //        baseArmo -= toReload;
+    //    }
 
-        return baseArmo;
-    }
-}
+    //    return baseArmo;
+    //}
+
+    //public int ammoBullets = 3;
+ 
+
+
+    //private void OnPickeUp()
+    //{
+    //    Player3D.StepInItem += PickUpBullets;
+    //}
+    //private void OfPickeUp()
+    //{
+    //    Player3D.StepInItem -= PickUpBullets;
+    //}
+
+    //public void PickUpBullets()
+    //{
+    //    PickUpBullestGround += ammoBullets;
+    //}
+
+   
+

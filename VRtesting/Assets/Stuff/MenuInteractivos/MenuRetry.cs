@@ -16,7 +16,8 @@ public class MenuRetry : MonoBehaviour
     public void Nvl1()
     {
         SceneManager.LoadScene(0);
-        SceneManager.LoadScene(4, LoadSceneMode.Additive);
+        SceneManager.LoadScene(7, LoadSceneMode.Additive);
     }
 
 }
+ 

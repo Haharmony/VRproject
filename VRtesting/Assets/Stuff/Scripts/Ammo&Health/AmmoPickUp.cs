@@ -6,22 +6,26 @@ public class AmmoPickUp : MonoBehaviour
 {
     public int ammoBullets = 3;
     int newAmmo;
+    public Gun gun;
 
-    // Start is called before the first frame update
-    void Start()
+   
+
+    private void OnPickeUp()
     {
-       
+        Player3D.StepInItem += PickUpBullets;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OfPickeUp()
     {
-        
+        Player3D.StepInItem -= PickUpBullets;
+      
     }
 
     public void PickUpBullets()
     {
-        newAmmo += ammoBullets;
+        Debug.Log("Hola");
+
+        gun.actualbullets += ammoBullets;
+        
     }
 
     int AmmoAmount()

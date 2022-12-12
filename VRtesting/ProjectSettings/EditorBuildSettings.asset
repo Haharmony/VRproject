@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu Retry.unity
     guid: 2a00880fced9a0e47a61a4a25d59903d
+  - enabled: 1
+    path: Assets/Scenes/Level one.unity
+    guid: 683d0f63d8a190246914e216e5f68fc9
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 5c1f0a387b99d8f42a9e27a8dfedccf6, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 8586d13dab38d2a4f8ec4fc57299a28d, type: 2}

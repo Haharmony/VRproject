@@ -23,8 +23,8 @@ public class Interfaz : MonoBehaviour
     {
         HealthBar.fillAmount = p3d.playerHealth / p3d.maxHealth2;
 
-        Debug.Log(p3d.playerHealth);
-        Debug.Log(p3d.maxHealth2);
+       // Debug.Log(p3d.playerHealth);
+        //Debug.Log(p3d.maxHealth2);
     }
     float HealthPlayerBar()
     {

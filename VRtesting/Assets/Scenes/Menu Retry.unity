@@ -227,6 +227,8 @@ MonoBehaviour:
   maxHealth2: 100
   baseAmmo: 0
   boolFlashLight: 0
+  gun: {fileID: 0}
+  AmmoP: {fileID: 0}
 --- !u!114 &79738292
 MonoBehaviour:
   m_ObjectHideFlags: 0

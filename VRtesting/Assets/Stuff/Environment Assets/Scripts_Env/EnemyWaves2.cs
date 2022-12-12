@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class EnemyWaves : MonoBehaviour
+public class EnemyWaves2 : MonoBehaviour
 {
     public GameObject[] Enemies;
     public int xPos;
@@ -13,50 +12,41 @@ public class EnemyWaves : MonoBehaviour
     public int currentWave;
     static public int currentEnemies;
     public int viewCurrentEnemies;
-    public GameObject menuWin;
     void Start()
     {
-        StartCoroutine(WaveGenerator());       
+        StartCoroutine(WaveGenerator2());
     }
 
     void Update()
     {
         viewCurrentEnemies = currentEnemies;
-        Win();
+        Win2();
     }
 
-    public void Win()
+    public void Win2()
     {
-        if(currentWave == 2 && currentEnemies == 0)
+        if (currentWave == 3 && currentEnemies == 0)
         {
             Debug.Log("WIN");
-            menuWin.SetActive(true);
-            StartCoroutine("terminarLvl1");
         }
     }
-    public IEnumerator terminarLvl1()
+
+
+
+    IEnumerator WaveGenerator2()
     {
-        yield return new WaitForSeconds(5);
-        SceneManager.LoadScene(6);
-    }
-
-
-
-    IEnumerator WaveGenerator()
-    {
-        totalWaves = 2;
+        totalWaves = 3;
         currentWave = 1;
-        while (totalWaves == 2) //Numero de rondas totales.
+        while (totalWaves == 3) //Numero de rondas totales.
         {
-            if (currentWave <= 1) 
+            if (currentWave <= 1)
             {
                 while (enemyCount < 10) //Loop de enemigos y numero de enemigos a crear por ronda
                 {
-                    //Vector3(-7.21391153,12.3270626,-22.1017914)
-                    xPos = Random.Range(-7, -10);
-                    zPos = Random.Range(-22, -25);
+                    xPos = Random.Range(6, 12);
+                    zPos = Random.Range(-4, 4);
                     int rand = Random.Range(0, 1); //Enemigos que generará.
-                    Instantiate(Enemies[rand], new Vector3(xPos, 20, zPos), Quaternion.identity);
+                    Instantiate(Enemies[rand], new Vector3(xPos, -6, zPos), Quaternion.identity);
                     yield return new WaitForSeconds(0.3f); //Tiempo entre enemigo creado
                     enemyCount++;
                     currentEnemies++;
@@ -64,27 +54,28 @@ public class EnemyWaves : MonoBehaviour
                 enemyCount = 0;
                 currentWave++;
                 //totalWaves++;
-                yield return new WaitForSeconds(20); //Tiempo entre rondas
+                yield return new WaitForSeconds(3); //Tiempo entre rondas
             }
 
-            if (currentWave == 2)
+            if (currentWave > 1 && currentWave <= 2)
             {
                 while (enemyCount < 5) //Loop de enemigos y numero de enemigos a crear por ronda
                 {
-                    xPos = Random.Range(-7, -10);
-                    zPos = Random.Range(-22, -25);
+                    xPos = Random.Range(6, 12);
+                    zPos = Random.Range(-4, 4);
                     int rand = Random.Range(1, 2);
-                    Instantiate(Enemies[rand], new Vector3(xPos, 20, zPos), Quaternion.identity);
+                    Instantiate(Enemies[rand], new Vector3(xPos, -6, zPos), Quaternion.identity);
                     yield return new WaitForSeconds(0.3f); //Tiempo entre enemigo creado
                     enemyCount++;
                     currentEnemies++;
                 }
                 enemyCount = 0;
+                currentWave++;
                 //totalWaves++;
-                yield break;            
+                yield return new WaitForSeconds(3); //Tiempo entre rondas               
             }
 
-            /*if (currentWave == 3)
+            if (currentWave == 3)
             {
                 while (enemyCount < 1) //Loop de enemigos y numero de enemigos a crear por ronda
                 {
@@ -98,7 +89,7 @@ public class EnemyWaves : MonoBehaviour
                 }
                 Debug.Log(currentWave);
                 yield break;
-            }*/
+            }
         }
     }
 }
